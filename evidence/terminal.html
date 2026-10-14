@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=DM+Serif+Display&amp;display=swap" rel="stylesheet"/>
+<title>Running CLI — MCPFence evidence</title>
+<meta content="A real MCPFence command-line scan showing live registry resolution and generated outputs." name="description"/>
+<meta content="index, follow" name="robots"/>
+<meta content="light" name="color-scheme"/>
+
+
+<link href="../assets/evidence.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="wrap">
+<header class="topbar">
+<a class="brand" href="../index.html">Moti Tabulo</a>
+<nav aria-label="Evidence navigation" class="topnav">
+<a href="../index.html#mcpfence">Portfolio</a>
+<a href="index.html">Evidence index</a>
+<a href="report.html">Report</a>
+<a href="terminal.html">CLI</a><a href="tests.html">Tests</a>
+<a href="https://github.com/mtabz/mtabz.github.io" rel="noopener">GitHub repo</a>
+</nav>
+</header>
+<nav aria-label="Breadcrumb" class="breadcrumb"><a href="../index.html#mcpfence">MCPFence</a><span>/</span><a href="index.html">Build evidence</a><span>/</span><strong>CLI</strong></nav>
+<p class="closed-banner" role="note">MCPFence closed in August 2026 after a no-go decision. These pages are kept as a record of the build; anything describing future features refers to plans that were not pursued. <a href="../index.html#outcome">Read the outcome</a>.</p>
+<main id="content">
+<header class="hero"><p class="kicker">Running implementation</p><h1>Running CLI</h1><p class="deck">A real terminal transcript (vendor name replaced) showing how a vendor scan is configured, resolved against live registries and written as both a report and structured exposure map.</p><div class="meta-row"><span class="pill">Working CLI</span><span class="pill">Live registry resolution</span><span class="pill">Read-only scan</span></div></header>
+<section aria-labelledby="test-coverage-title" class="test-coverage"><p class="kicker">What the command does</p><h2 id="test-coverage-title">One command turns vendor identity hints into an exposure map.</h2><div class="summary-grid"><div class="summary-item"><strong>Input</strong><span>Vendor name plus any known official package, endpoint, GitHub organisation or domain.</span></div><div class="summary-item"><strong>Resolution</strong><span>Queries npm, PyPI and the official MCP Registry, then applies deterministic name and provenance rules.</span></div><div class="summary-item"><strong>Output</strong><span>Writes a human-readable audit report and a machine-readable exposure map from the same scan.</span></div><div class="summary-item"><strong>Safety</strong><span>Reads registry metadata only; it does not install or execute unknown packages.</span></div></div></section>
+<div aria-label="MCPFence terminal transcript" class="terminal" role="region" tabindex="0"><div class="terminal-head"><div class="terminal-dots"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div><span>mcpfence — local development environment</span><span>read-only transcript</span></div><div class="terminal-body"><span class="prompt">$</span> <span class="command">uv run mcpfence scan --help</span>
+<span class="heading">usage: mcpfence scan [-h] --vendor VENDOR [--official-npm OFFICIAL_NPM]</span>
+                    [--official-pypi OFFICIAL_PYPI]
+                    [--official-endpoint OFFICIAL_ENDPOINT]
+                    [--github-org GITHUB_ORG] [--domain DOMAIN] [--json]
+                    [--out OUT]
+
+<span class="heading">options:</span>
+  -h, --help            show this help message and exit
+<span class="option">  --vendor VENDOR</span>
+<span class="option">  --official-npm OFFICIAL_NPM</span>
+<span class="option">  --official-pypi OFFICIAL_PYPI</span>
+<span class="option">  --official-endpoint OFFICIAL_ENDPOINT</span>
+<span class="option">  --github-org GITHUB_ORG</span>
+<span class="option">  --domain DOMAIN</span>
+<span class="option">  --json                print JSON instead of markdown</span>
+<span class="option">  --out OUT             write exposure_map.json and report.md into this dir</span>
+<span class="prompt">$</span> <span class="command">uv run mcpfence scan --vendor acme-corp     # live scan output; vendor name replaced</span>
+<span class="heading"># Exposure map: acme-corp</span>
+<span class="heading">## channels</span>
+<span class="heading">### npm — acme-corp-mcp</span>
+<span class="dim">- official surface: (none) (remote)</span>
+<span class="dim">- state: OPEN, unoccupied  (confidence: high)</span>
+<span class="dim">- note: bare name open, not currently occupied</span>
+<span class="heading">### official_registry — acme-corp</span>
+<span class="dim">- official surface: (none) (unknown)</span>
+<span class="dim">- state: OPEN, unoccupied  (confidence: high)</span>
+<span class="dim">- note: no official listing</span>
+<span class="heading">### pypi — acme-corp-mcp</span>
+<span class="dim">- official surface: (none) (remote)</span>
+<span class="dim">- state: OPEN, unoccupied  (confidence: high)</span>
+<span class="dim">- note: bare name open, not currently occupied</span>
+</div></div>
+<div class="note"><strong>What this shows: </strong>the working product accepts a vendor identity, resolves live registry surfaces and creates both the readable audit and the structured data needed by later workflows.</div>
+<div class="evidence-nav"><a href="report.html">Inspect generated report →</a><a href="json.html">Inspect generated JSON →</a><a href="tests.html">Review the test strategy →</a><a href="raw/terminal-transcript.txt">View raw transcript</a><a href="index.html">Evidence index</a></div></main>
+<footer><span>MCPFence public-safe build evidence</span><a href="../index.html#mcpfence">Back to portfolio</a></footer>
+</div>
+</body>
+</html>

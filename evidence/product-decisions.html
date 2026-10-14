@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=DM+Serif+Display&amp;display=swap" rel="stylesheet"/>
+<title>Product decisions — MCPFence evidence</title>
+<meta content="The evidence that changed the customer, product core and model strategy." name="description"/>
+<meta content="index, follow" name="robots"/>
+<meta content="light" name="color-scheme"/>
+
+
+<link href="../assets/evidence.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="wrap">
+<header class="topbar">
+<a class="brand" href="../index.html">Moti Tabulo</a>
+<nav aria-label="Evidence navigation" class="topnav">
+<a href="../index.html#mcpfence">Portfolio</a>
+<a href="index.html">Evidence index</a>
+<a href="report.html">Report</a>
+<a href="terminal.html">CLI</a><a href="tests.html">Tests</a>
+<a href="https://github.com/mtabz/mtabz.github.io" rel="noopener">GitHub repo</a>
+</nav>
+</header>
+<nav aria-label="Breadcrumb" class="breadcrumb"><a href="../index.html#mcpfence">MCPFence</a><span>/</span><a href="index.html">Build evidence</a><span>/</span><strong>Product decisions</strong></nav>
+<p class="closed-banner" role="note">MCPFence closed in August 2026 after a no-go decision. These pages are kept as a record of the build; anything describing future features refers to plans that were not pursued. <a href="../index.html#outcome">Read the outcome</a>.</p>
+<main id="content"><header class="hero"><p class="kicker">Design record</p><h1>Product decisions</h1><p class="deck">The evidence that changed the customer, product core and model strategy.</p></header><div class="page-grid"><article class="content-card doc-body"><h2>1. Move from agent selection to producer-side namespace defence</h2>
+<p>The first hypothesis was that an agent searching for an MCP server might select an impersonating or unofficial result. A Sonnet-based search probe reached the official server in 29 of 30 trials. Meanwhile, deterministic inspection of an initial vendor sample found that three of seven vendors with scoped, remote or differently named official surfaces had their obvious bare package name occupied.</p>
+<p>That evidence changed the product direction. The working core became a producer-side exposure map: identify the official surface, enumerate obvious namespace variants, determine whether they are open or occupied, and verify whether an occupier has provenance back to the vendor.</p>
+<p>The probabilistic search probe was retained as a secondary behavioural signal rather than discarded. This preserves an evaluation path for future questions about agent discovery while keeping the customer-facing finding reproducible and explainable.</p>
+<h2>2. Prefer deterministic facts over an opaque score</h2>
+<p>Each finding reports the surface, state, occupier, provenance evidence and confidence. The tool does not ask a model to rediscover registry facts that code can establish more cheaply and consistently.</p>
+<h2>3. Treat inference economics and quality as architectural inputs</h2>
+<p>The first Sonnet search-probe runs showed that fetched web content, injected into context as input tokens, dominated the cost of the probabilistic path. A wider Sonnet test set used 6,211,159 input tokens and 90 web searches across 30 trials, for a metered cost of $21.24.</p>
+<p>I then ran Haiku 4.5 on the same five-vendor configuration as a Sonnet baseline, one trial per vendor:</p>
+<table>
+<thead>
+<tr>
+<th>model</th>
+<th style="text-align:right">total cost</th>
+<th style="text-align:right">cost / scan</th>
+<th style="text-align:right">input tokens</th>
+<th style="text-align:right">reached official</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Haiku 4.5</td>
+<td style="text-align:right">$0.315</td>
+<td style="text-align:right">$0.063</td>
+<td style="text-align:right">195,508</td>
+<td style="text-align:right">4/5</td>
+</tr>
+<tr>
+<td>Sonnet baseline</td>
+<td style="text-align:right">$5.018</td>
+<td style="text-align:right">$1.00</td>
+<td style="text-align:right">1,503,702</td>
+<td style="text-align:right">5/5</td>
+</tr>
+</tbody>
+</table>
+<p>The absolute Haiku operating point is measured and useful: about six cents per scan. The raw approximately 16× difference is not a clean model comparison because web-search payloads varied substantially and the Sonnet subset contained heavy-input outliers. The defensible pricing interpretation is:</p>
+<ul>
+<li>model token prices favour Haiku by 3×;</li>
+<li>the flat web-search fee is model-independent;</li>
+<li>on light payloads that fee dampens the effective saving to roughly 2.4×;</li>
+<li>Haiku produced one discovery miss in five trials, so lower cost cannot be treated as equivalent quality without more repetitions.</li>
+</ul>
+<p>The architectural response was broader than changing models:</p>
+<ol>
+<li>Keep deterministic resolution as the product core; it uses no model and incurs no web-search cost.</li>
+<li>Retain the probabilistic probe only as an optional behavioural signal.</li>
+<li>Use a lower-cost model for bounded, low-stakes probing when its quality threshold is met.</li>
+<li>Escalate to a stronger model, or decline to score, when ambiguity or recall requirements warrant it.</li>
+<li>Measure cost and quality together rather than optimising either in isolation.</li>
+</ol>
+<h2>4. Make the exposure audit the first sellable output</h2>
+<p>The earliest product is a one-off, evidence-backed exposure audit. The recurring product extends the same resolution layer into namespace monitoring, defensive claims, provenance issuance and managed response. The recurring product was not built: the project closed at the audit stage after a no-go decision in August 2026.</p>
+<div class="evidence-nav"><a href="raw/product-decisions.md">View raw Markdown</a><a href="index.html">Evidence index</a></div></article><aside class="side-stack"><section class="side-card"><h2>Why include this</h2><p>This record makes the reasoning behind the implementation inspectable, not merely the output.</p></section></aside></div></main>
+<footer><span>MCPFence public-safe build evidence</span><a href="../index.html#mcpfence">Back to portfolio</a></footer>
+</div>
+</body>
+</html>

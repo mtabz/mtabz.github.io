@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=DM+Serif+Display&amp;display=swap" rel="stylesheet"/>
+<title>Generated exposure map — MCPFence evidence</title>
+<meta content="A prettified view of the machine-readable MCPFence exposure map." name="description"/>
+<meta content="index, follow" name="robots"/>
+<meta content="light" name="color-scheme"/>
+
+
+<link href="../assets/evidence.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="wrap">
+<header class="topbar">
+<a class="brand" href="../index.html">Moti Tabulo</a>
+<nav aria-label="Evidence navigation" class="topnav">
+<a href="../index.html#mcpfence">Portfolio</a>
+<a href="index.html">Evidence index</a>
+<a href="report.html">Report</a>
+<a href="terminal.html">CLI</a><a href="tests.html">Tests</a>
+<a href="https://github.com/mtabz/mtabz.github.io" rel="noopener">GitHub repo</a>
+</nav>
+</header>
+<nav aria-label="Breadcrumb" class="breadcrumb"><a href="../index.html#mcpfence">MCPFence</a><span>/</span><a href="index.html">Build evidence</a><span>/</span><strong>JSON</strong></nav>
+<p class="closed-banner" role="note">MCPFence closed in August 2026 after a no-go decision. These pages are kept as a record of the build; anything describing future features refers to plans that were not pursued. <a href="../index.html#outcome">Read the outcome</a>.</p>
+<main id="content">
+<header class="hero"><p class="kicker">Machine-readable output</p><h1>Generated exposure map</h1><p class="deck">The structured JSON emitted from the same scan as the human-readable report.</p><div class="meta-row"><span class="pill">Deterministic schema</span><span class="pill">Human + machine outputs</span><span class="pill">Sanitised</span></div></header>
+<div class="summary-grid"><div class="summary-item"><strong>Identity surface</strong><span>Official and expected names per channel</span></div><div class="summary-item"><strong>Namespace state</strong><span>Owned, available or third-party occupied</span></div><div class="summary-item"><strong>Provenance</strong><span>Whether the listing chains back to the vendor</span></div><div class="summary-item"><strong>Observed capabilities</strong><span>Credential hints and exposed tool metadata</span></div></div>
+<div class="page-grid"><article class="content-card"><div class="callout" style="border-color:var(--line);background:var(--soft)"><div class="label" style="color:var(--muted)">How the exposure map is used</div><strong>The same scan was designed to feed later workflows as well as the audit.</strong><p>The report renders these facts for a vendor. The same structured output can drive remediation queues, change monitoring, alerts and a CI/CD release check before an MCP package is published.</p></div>
+<div class="code-shell"><div class="code-head"><span>exposure_map.json</span><div class="code-actions"><a href="raw/exposure-map.json">Raw JSON</a><a href="report.html">Human report</a></div></div><div class="code-body"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"vendor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"finding_line"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your official surface is vendorco-api-mcp (differently-named), so the bare name vendorco-mcp is open on npm, occupied today by third-party-A which requests API_TOKEN and exposes create_record, delete_record, update_settings, deploy_service, list_resources, get_account."</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"findings"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"bare_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-mcp"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"official_surface"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-api-mcp"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"official_surface_shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"differently-named"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"bare_name_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"occupied"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"provenance_gap"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"occupier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-mcp"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"third-party-A"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"identity_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"impersonator"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"chains_to_vendor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"requests_credentials"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"credential_hints"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">"API_TOKEN"</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">"create_record"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"delete_record"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"update_settings"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"deploy_service"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"list_resources"</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">"get_account"</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"directories"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"bare_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-api-mcp-fork"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"official_surface"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-api-mcp"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"official_surface_shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"bare_name_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"occupied"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"provenance_gap"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crawled tier"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"occupier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-api-mcp-fork"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"identity_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"community"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"chains_to_vendor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"requests_credentials"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"credential_hints"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"directories"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"bare_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-mcp"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"official_surface"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-api-mcp"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"official_surface_shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"bare_name_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"occupied"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"provenance_gap"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crawled tier"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"occupier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-mcp"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"identity_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"impersonator"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"chains_to_vendor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"requests_credentials"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"credential_hints"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"directories"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"bare_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-tools"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"official_surface"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-api-mcp"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"official_surface_shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"bare_name_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"occupied"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"provenance_gap"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"crawled tier; provenance gap: no chain back to the vendor"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"occupier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-tools"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"holder"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"identity_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"chains_to_vendor"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"requests_credentials"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"credential_hints"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">"repository"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pypi"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"bare_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-mcp"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"official_surface"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"official_surface_shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"differently-named"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"bare_name_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"occupied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"provenance_gap"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bare name open, not currently occupied"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"occupier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"official_registry"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"bare_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"official_surface"</span><span class="p">:</span><span class="w"> </span><span class="s2">"io.github.vendorco/vendorco-api-mcp"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"official_surface_shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bare-name-owned"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"bare_name_open"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"occupied"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"provenance_gap"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"high"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"official listing present"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"occupier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div></div><div class="evidence-nav"><a href="terminal.html">See how the CLI generates it →</a><a href="tests.html">Review the test strategy →</a><a href="index.html">Evidence index</a></div></article><aside class="side-stack"><section class="side-card"><h2>Schema signals</h2><ul><li>Surface shape</li><li>Occupied vs available</li><li>Provenance chain</li><li>Credential hints</li><li>Tool metadata</li></ul></section><section class="side-card"><h2>Where this was designed to be consumed</h2><ul><li>Audit and remediation UI</li><li>Monitoring and ownership-change alerts</li><li>Managed response workflow</li><li>CI/CD release gate before publishing</li></ul></section><section class="side-card"><h2>Same scan</h2><p><a href="report.html">Compare the customer-facing report</a> generated from this evidence.</p></section><section class="side-card"><h2>Next evidence</h2><ul><li><a href="terminal.html">See the running CLI</a></li><li><a href="tests.html">Review the test strategy</a></li><li><a href="index.html">Browse all build evidence</a></li></ul></section></aside></div></main>
+<footer><span>MCPFence public-safe build evidence</span><a href="../index.html#mcpfence">Back to portfolio</a></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=DM+Serif+Display&amp;display=swap" rel="stylesheet"/>
+<title>Test strategy — MCPFence evidence</title>
+<meta content="The MCPFence test strategy for deterministic resolution, adversarial identity cases and stable registry adapters." name="description"/>
+<meta content="index, follow" name="robots"/><meta content="light" name="color-scheme"/>
+
+<link href="../assets/evidence.css" rel="stylesheet"/></head><body>
+<a class="skip-link" href="#content">Skip to content</a><div class="wrap">
+<header class="topbar"><a class="brand" href="../index.html">Moti Tabulo</a><nav aria-label="Evidence navigation" class="topnav"><a href="../index.html#mcpfence">Portfolio</a><a href="index.html">Evidence index</a><a href="report.html">Report</a><a href="terminal.html">CLI</a><a href="tests.html">Tests</a></nav></header>
+<nav aria-label="Breadcrumb" class="breadcrumb"><a href="../index.html#mcpfence">MCPFence</a><span>/</span><a href="index.html">Build evidence</a><span>/</span><strong>Test strategy</strong></nav>
+<p class="closed-banner" role="note">MCPFence closed in August 2026 after a no-go decision. These pages are kept as a record of the build; anything describing future features refers to plans that were not pursued. <a href="../index.html#outcome">Read the outcome</a>.</p>
+<main id="content"><header class="hero"><p class="kicker">Engineering judgement</p><h1>Test strategy</h1><p class="deck">The suite is organised around the product decisions that must remain trustworthy as registry data, adapters and the vendor corpus evolve.</p><div class="meta-row"><span class="pill">Deterministic rules</span><span class="pill">Adversarial scenarios</span><span class="pill">Real registry shapes</span></div></header>
+<div class="page-grid"><article class="content-card">
+<h2>Four layers of confidence</h2>
+<div class="strategy-grid">
+<section class="strategy-card"><span class="strategy-number">01</span><h3>Resolution rules</h3><p>Checks that bare-name, scoped, differently named and remote official surfaces resolve to the same result every time.</p><p class="strategy-why"><strong>Why it matters:</strong> the product’s core claim is reproducibility, so name-shape edge cases cannot be left to model judgement.</p></section>
+<section class="strategy-card"><span class="strategy-number">02</span><h3>Adversarial scenarios</h3><p>Exercises third-party occupiers, community forks, no-provenance decoys, unclaimed names and vendor-owned controls.</p><p class="strategy-why"><strong>Why it matters:</strong> the resolver must distinguish urgent exposure, latent risk and a clean result rather than treating every difference as suspicious.</p></section>
+<section class="strategy-card"><span class="strategy-number">03</span><h3>Registry contracts</h3><p>Replays frozen, redacted responses from npm, PyPI and the official MCP Registry without making the tests depend on a live network.</p><p class="strategy-why"><strong>Why it matters:</strong> adapters are tested against realistic API shapes while runs remain stable and repeatable.</p></section>
+<section class="strategy-card"><span class="strategy-number">04</span><h3>Output consistency</h3><p>Checks that the Markdown audit and JSON exposure map describe the same surface state, provenance and finding.</p><p class="strategy-why"><strong>Why it matters:</strong> human and machine consumers must act on one source of truth.</p></section>
+</div>
+<h2>Scenario design</h2><p>The corpus combines representative real vendor shapes with planted adversarial cases. Real examples expose naming and registry edge cases; planted fixtures make the expected answer unambiguous, including a deliberate no-provenance decoy and clean controls.</p>
+<div aria-label="Representative MCPFence test scenarios" class="scenario-table" role="table">
+<div class="scenario-row scenario-head" role="row"><span role="columnheader">Scenario</span><span role="columnheader">Expected classification</span><span role="columnheader">Decision protected</span></div>
+<div class="scenario-row" role="row"><span role="cell">Official package uses a different name; obvious bare name is third-party occupied</span><span role="cell"><strong>Exposed</strong></span><span role="cell">Prioritise impersonation and provenance risk</span></div>
+<div class="scenario-row" role="row"><span role="cell">Official package is scoped; bare name is still available</span><span role="cell"><strong>Latent</strong></span><span role="cell">Surface a claim opportunity without alleging abuse</span></div>
+<div class="scenario-row" role="row"><span role="cell">Vendor owns the expected name and official registry listing</span><span role="cell"><strong>Protected</strong></span><span role="cell">Return a clean result instead of manufacturing risk</span></div>
+<div class="scenario-row" role="row"><span role="cell">Community fork or directory listing has no vendor provenance</span><span role="cell"><strong>Provenance gap</strong></span><span role="cell">Keep lower-priority identity ambiguity separate from urgent package exposure</span></div>
+</div>
+<h2>Execution evidence</h2><p>The complete suite currently passes locally. The meaningful evidence is not the number of tests, but the fact that each architectural layer above has explicit regression coverage.</p>
+<div aria-label="MCPFence test run" class="terminal compact-terminal" role="region" tabindex="0"><div class="terminal-head"><div class="terminal-dots"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div><span>mcpfence — automated suite</span><span>read-only transcript</span></div><div class="terminal-body"><span class="prompt">$</span> <span class="command">uv run pytest tests/ -q</span>
+........................................................................ [ 90%]
+...............                                                          [100%]
+<span class="success">All tests passed</span></div></div>
+<div class="note"><strong>Why this matters:</strong> the resolver, adapters, adversarial cases and output contract are tested independently, so a change in one layer is less likely to silently alter the product’s conclusion.</div>
+<div class="evidence-nav"><a href="cassette.html">Inspect a frozen registry cassette →</a><a href="architecture.html">Read the architecture →</a><a href="terminal.html">See the running CLI →</a><a href="index.html">Evidence index</a></div>
+</article><aside class="side-stack"><section class="side-card"><h2>Why not just end-to-end tests?</h2><p>A single passing scan would not reveal whether a failure came from naming rules, a registry adapter, provenance logic or report rendering. The layers keep those responsibilities separable.</p></section><section class="side-card"><h2>What changes safely</h2><ul><li>Add new registry adapters</li><li>Expand the vendor corpus</li><li>Refine provenance rules</li><li>Change the UI without changing classifications</li></ul></section><section class="side-card"><h2>Next evidence</h2><ul><li><a href="cassette.html">Frozen registry response</a></li><li><a href="architecture.html">System architecture</a></li><li><a href="product-decisions.html">Product decisions</a></li></ul></section></aside></div></main>
+<footer><span>MCPFence public-safe build evidence</span><a href="../index.html#mcpfence">Back to portfolio</a></footer></div></body></html>

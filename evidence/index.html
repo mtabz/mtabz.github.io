@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=DM+Serif+Display&amp;display=swap" rel="stylesheet"/>
+<title>Build evidence — MCPFence evidence</title>
+<meta content="A curated public evidence repository for the MCPFence builder project." name="description"/>
+<meta content="index, follow" name="robots"/>
+<meta content="light" name="color-scheme"/>
+
+
+<link href="../assets/evidence.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="wrap">
+<header class="topbar">
+<a class="brand" href="../index.html">Moti Tabulo</a>
+<nav aria-label="Evidence navigation" class="topnav">
+<a href="../index.html#mcpfence">Portfolio</a>
+<a href="index.html">Evidence index</a>
+<a href="report.html">Report</a>
+<a href="terminal.html">CLI</a><a href="tests.html">Tests</a>
+<a href="https://github.com/mtabz/mtabz.github.io" rel="noopener">GitHub repo</a>
+</nav>
+</header>
+<nav aria-label="Breadcrumb" class="breadcrumb"><a href="../index.html#mcpfence">MCPFence</a><span>/</span><a href="index.html">Build evidence</a><span>/</span><strong>Index</strong></nav>
+<p class="closed-banner" role="note">MCPFence closed in August 2026 after a no-go decision. These pages are kept as a record of the build; anything describing future features refers to plans that were not pursued. <a href="../index.html#outcome">Read the outcome</a>.</p>
+<main id="content">
+<header class="hero"><p class="kicker">Curated public repository</p><h1>MCPFence build evidence</h1><p class="deck">A guided evidence set showing the product output, the running implementation, the deterministic test method and the decisions behind the build.</p><div class="meta-row"><span class="pill">Public-safe</span><span class="pill">Real generated output</span><span class="pill">Selected implementation evidence</span></div></header>
+<div class="repo-intro">
+<div class="proof-card"><strong>Customer value</strong><span>A concrete exposure report explains the risk and the evidence behind it.</span></div>
+<div class="proof-card"><strong>Product mechanics</strong><span>A working CLI resolves live registry surfaces and emits a readable report plus structured data.</span></div>
+<div class="proof-card"><strong>Test architecture</strong><span>Layered tests protect resolution rules, adversarial scenarios, registry adapters and output consistency.</span></div>
+<div class="proof-card"><strong>Product judgement</strong><span>Decision records show how evidence changed the buyer, product and model strategy.</span></div>
+</div>
+<section class="repo-section"><div class="repo-section-head"><div><p class="kicker">Start here</p><h2>Generated product outputs</h2></div><p>What a customer or downstream system receives.</p></div><div class="repo-grid">
+<a class="repo-card" href="report.html"><span class="type">Human-readable output</span><strong>Sanitised exposure report</strong><p>The exact finding, channel evidence and responsible-disclosure context in a buyer-readable format.</p><span class="arrow">Open report →</span></a>
+<a class="repo-card" href="json.html"><span class="type">Machine-readable output</span><strong>Generated exposure map</strong><p>The structured evidence contract underlying the report and planned monitoring or remediation interfaces, which were not built.</p><span class="arrow">Inspect JSON →</span></a>
+<a class="repo-card" href="latent.html"><span class="type">Resolution case</span><strong>Open but unclaimed</strong><p>A real, sanitised case showing a latent namespace gap without accusing a third party.</p><span class="arrow">View case →</span></a>
+<a class="repo-card" href="protected.html"><span class="type">Resolution case</span><strong>No namespace gap</strong><p>A synthetic control showing that the resolver can return a clean result rather than always producing risk.</p><span class="arrow">View case →</span></a>
+</div></section>
+<section class="repo-section"><div class="repo-section-head"><div><p class="kicker">Implementation</p><h2>Running product and test method</h2></div><p>How the CLI behaves and how its core decisions stay reliable.</p></div><div class="repo-grid"><a class="repo-card" href="terminal.html"><span class="type">Running implementation</span><strong>Command-line scan</strong><p>See the real command interface, live registry resolution and generated report and JSON outputs.</p><span class="arrow">Open CLI →</span></a><a class="repo-card" href="tests.html"><span class="type">Engineering judgement</span><strong>Test strategy</strong><p>See why the suite separates resolution rules, adversarial scenarios, registry contracts and output consistency.</p><span class="arrow">Review tests →</span></a><a class="repo-card" href="cassette.html"><span class="type">Test evidence</span><strong>Frozen registry cassette</strong><p>Inspect a real, redacted registry response used for deterministic offline replay.</p><span class="arrow">Inspect cassette →</span></a><a class="repo-card" href="architecture.html"><span class="type">Technical design</span><strong>Public-safe architecture</strong><p>Follow the resolution pipeline, current live coverage and explicit safety boundaries.</p><span class="arrow">Read architecture →</span></a></div></section>
+<section class="repo-section"><div class="repo-section-head"><div><p class="kicker">Reasoning</p><h2>Product and AI decisions</h2></div><p>Why the product took its current shape.</p></div><div class="repo-grid">
+<a class="repo-card" href="product-decisions.html"><span class="type">Product judgement</span><strong>Decision record</strong><p>How testing moved the product from an AI warning tool to deterministic producer-side namespace defence.</p><span class="arrow">Read decisions →</span></a>
+<a class="repo-card" href="model-cost-experiment.html"><span class="type">AI economics</span><strong>Model cost-and-quality experiment</strong><p>Measured Haiku economics, the quality miss and the decision to keep models outside the core scan.</p><span class="arrow">Read experiment →</span></a>
+</div></section>
+<div class="note"><strong>Repository scope:</strong> this public set focuses on the evidence a product or technical leader would need to inspect: customer output, structured data, execution, reproducibility and decision records. The full resolver, private vendor corpus and unresolved identities remain private.</div>
+</main>
+<footer><span>MCPFence public-safe build evidence</span><a href="../index.html#mcpfence">Back to portfolio</a></footer>
+</div>
+</body>
+</html>

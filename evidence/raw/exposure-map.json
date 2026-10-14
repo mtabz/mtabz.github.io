@@ -1,0 +1,123 @@
+{
+  "vendor": "vendorco",
+  "finding_line": "your official surface is vendorco-api-mcp (differently-named), so the bare name vendorco-mcp is open on npm, occupied today by third-party-A which requests API_TOKEN and exposes create_record, delete_record, update_settings, deploy_service, list_resources, get_account.",
+  "findings": [
+    {
+      "channel": "npm",
+      "bare_name": "vendorco-mcp",
+      "official_surface": "vendorco-api-mcp",
+      "official_surface_shape": "differently-named",
+      "bare_name_open": true,
+      "occupied": true,
+      "provenance_gap": true,
+      "confidence": "high",
+      "note": null,
+      "occupier": {
+        "name": "vendorco-mcp",
+        "holder": "third-party-A",
+        "identity_class": "impersonator",
+        "chains_to_vendor": false,
+        "requests_credentials": true,
+        "credential_hints": [
+          "API_TOKEN"
+        ],
+        "tools": [
+          "create_record",
+          "delete_record",
+          "update_settings",
+          "deploy_service",
+          "list_resources",
+          "get_account"
+        ],
+        "repository": null
+      }
+    },
+    {
+      "channel": "directories",
+      "bare_name": "vendorco-api-mcp-fork",
+      "official_surface": "vendorco-api-mcp",
+      "official_surface_shape": "unknown",
+      "bare_name_open": true,
+      "occupied": true,
+      "provenance_gap": true,
+      "confidence": "high",
+      "note": "crawled tier",
+      "occupier": {
+        "name": "vendorco-api-mcp-fork",
+        "holder": null,
+        "identity_class": "community",
+        "chains_to_vendor": false,
+        "requests_credentials": false,
+        "credential_hints": [],
+        "tools": [],
+        "repository": null
+      }
+    },
+    {
+      "channel": "directories",
+      "bare_name": "vendorco-mcp",
+      "official_surface": "vendorco-api-mcp",
+      "official_surface_shape": "unknown",
+      "bare_name_open": true,
+      "occupied": true,
+      "provenance_gap": true,
+      "confidence": "high",
+      "note": "crawled tier",
+      "occupier": {
+        "name": "vendorco-mcp",
+        "holder": null,
+        "identity_class": "impersonator",
+        "chains_to_vendor": false,
+        "requests_credentials": false,
+        "credential_hints": [],
+        "tools": [],
+        "repository": null
+      }
+    },
+    {
+      "channel": "directories",
+      "bare_name": "vendorco-tools",
+      "official_surface": "vendorco-api-mcp",
+      "official_surface_shape": "unknown",
+      "bare_name_open": true,
+      "occupied": true,
+      "provenance_gap": true,
+      "confidence": "high",
+      "note": "crawled tier; provenance gap: no chain back to the vendor",
+      "occupier": {
+        "name": "vendorco-tools",
+        "holder": null,
+        "identity_class": "unknown",
+        "chains_to_vendor": false,
+        "requests_credentials": false,
+        "credential_hints": [],
+        "tools": [],
+        "repository": null
+      }
+    },
+    {
+      "channel": "pypi",
+      "bare_name": "vendorco-mcp",
+      "official_surface": null,
+      "official_surface_shape": "differently-named",
+      "bare_name_open": true,
+      "occupied": false,
+      "provenance_gap": false,
+      "confidence": "high",
+      "note": "bare name open, not currently occupied",
+      "occupier": null
+    },
+    {
+      "channel": "official_registry",
+      "bare_name": "vendorco",
+      "official_surface": "io.github.vendorco/vendorco-api-mcp",
+      "official_surface_shape": "bare-name-owned",
+      "bare_name_open": false,
+      "occupied": false,
+      "provenance_gap": false,
+      "confidence": "high",
+      "note": "official listing present",
+      "occupier": null
+    }
+  ]
+}

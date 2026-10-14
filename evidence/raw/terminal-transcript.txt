@@ -1,0 +1,42 @@
+$ uv run mcpfence scan --help
+usage: mcpfence scan [-h] --vendor VENDOR [--official-npm OFFICIAL_NPM]
+                    [--official-pypi OFFICIAL_PYPI]
+                    [--official-endpoint OFFICIAL_ENDPOINT]
+                    [--github-org GITHUB_ORG] [--domain DOMAIN] [--json]
+                    [--out OUT]
+
+options:
+  -h, --help            show this help message and exit
+  --vendor VENDOR
+  --official-npm OFFICIAL_NPM
+  --official-pypi OFFICIAL_PYPI
+  --official-endpoint OFFICIAL_ENDPOINT
+  --github-org GITHUB_ORG
+  --domain DOMAIN
+  --json                print JSON instead of markdown
+  --out OUT             write exposure_map.json and report.md into this dir
+
+$ uv run mcpfence scan --vendor acme-corp     # live scan output; vendor name replaced
+# Exposure map: acme-corp
+
+## channels
+
+### npm — acme-corp-mcp
+- official surface: (none) (remote)
+- state: OPEN, unoccupied  (confidence: high)
+- note: bare name open, not currently occupied
+
+### official_registry — acme-corp
+- official surface: (none) (unknown)
+- state: OPEN, unoccupied  (confidence: high)
+- note: no official listing
+
+### pypi — acme-corp-mcp
+- official surface: (none) (remote)
+- state: OPEN, unoccupied  (confidence: high)
+- note: bare name open, not currently occupied
+
+$ uv run pytest tests/ -q
+........................................................................ [ 90%]
+...............                                                          [100%]
+159 passed in 16.09s

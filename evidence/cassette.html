@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#fbfbfd" name="theme-color"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=DM+Serif+Display&amp;display=swap" rel="stylesheet"/>
+<title>Frozen registry cassette — MCPFence evidence</title>
+<meta content="A redacted real registry response used for deterministic offline test replay." name="description"/>
+<meta content="index, follow" name="robots"/>
+<meta content="light" name="color-scheme"/>
+
+
+<link href="../assets/evidence.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="wrap">
+<header class="topbar">
+<a class="brand" href="../index.html">Moti Tabulo</a>
+<nav aria-label="Evidence navigation" class="topnav">
+<a href="../index.html#mcpfence">Portfolio</a>
+<a href="index.html">Evidence index</a>
+<a href="report.html">Report</a>
+<a href="terminal.html">CLI</a><a href="tests.html">Tests</a>
+<a href="https://github.com/mtabz/mtabz.github.io" rel="noopener">GitHub repo</a>
+</nav>
+</header>
+<nav aria-label="Breadcrumb" class="breadcrumb"><a href="../index.html#mcpfence">MCPFence</a><span>/</span><a href="index.html">Build evidence</a><span>/</span><strong>Cassette</strong></nav>
+<p class="closed-banner" role="note">MCPFence closed in August 2026 after a no-go decision. These pages are kept as a record of the build; anything describing future features refers to plans that were not pursued. <a href="../index.html#outcome">Read the outcome</a>.</p>
+<main id="content">
+<header class="hero"><p class="kicker">Reproducibility evidence</p><h1>Frozen registry cassette</h1><p class="deck">A redacted record of a real npm response used to replay registry behaviour deterministically during offline tests.</p><div class="meta-row"><span class="pill">Real response</span><span class="pill">Identity redacted</span><span class="pill">Offline replay</span></div></header>
+<div class="page-grid"><article class="content-card"><div class="callout" style="border-color:var(--line);background:var(--soft)"><div class="label" style="color:var(--muted)">What this proves</div><strong>The same registry evidence can be replayed without relying on a changing network response.</strong><p>This makes regression tests reproducible and lets the resolver’s output be compared byte-for-byte across code changes.</p></div><div class="code-shell"><div class="code-head"><span>cassette-sample-redacted.json</span><div class="code-actions"><a href="raw/cassette-sample-redacted.json">Raw JSON</a></div></div><div class="code-body"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://registry.npmjs.org/vendorco-mcp"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"json"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vendorco-mcp"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"dist-tags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"latest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.1"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MCP server for VendorCo API (illustrative; identity redacted)"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"maintainers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"third-party-A"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"redacted@example.com"</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"third-party-A"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"redacted@example.com"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-03-24T19:39:56.990Z"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-03-24T20:38:30.740Z"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"versions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"1.0.1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"@modelcontextprotocol/sdk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"zod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"bin"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">"vendorco-mcp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dist/index.js"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div></div><div class="evidence-nav"><a href="architecture.html">Architecture →</a><a href="terminal.html">Test run →</a><a href="index.html">Evidence index</a></div></article><aside class="side-stack"><section class="side-card"><h2>Safety</h2><p>Maintainer names and email addresses are redacted. Private cassettes are not published.</p></section></aside></div></main>
+<footer><span>MCPFence public-safe build evidence</span><a href="../index.html#mcpfence">Back to portfolio</a></footer>
+</div>
+</body>
+</html>

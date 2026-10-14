@@ -1,0 +1,36 @@
+{
+  "url": "https://registry.npmjs.org/vendorco-mcp",
+  "status": 200,
+  "json": {
+    "name": "vendorco-mcp",
+    "dist-tags": {
+      "latest": "1.0.1"
+    },
+    "description": "MCP server for VendorCo API (illustrative; identity redacted)",
+    "maintainers": [
+      {
+        "name": "third-party-A",
+        "email": "redacted@example.com"
+      }
+    ],
+    "author": {
+      "name": "third-party-A",
+      "email": "redacted@example.com"
+    },
+    "time": {
+      "created": "2026-03-24T19:39:56.990Z",
+      "modified": "2026-03-24T20:38:30.740Z"
+    },
+    "versions": {
+      "1.0.1": {
+        "dependencies": {
+          "@modelcontextprotocol/sdk": "*",
+          "zod": "*"
+        },
+        "bin": {
+          "vendorco-mcp": "dist/index.js"
+        }
+      }
+    }
+  }
+}
